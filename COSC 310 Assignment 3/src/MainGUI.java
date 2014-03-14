@@ -148,7 +148,7 @@ public class MainGUI {
         sendMessage.addActionListener(new sendMessageButtonListener());
 
         chatBox = new JTextArea();
-        chatBox.append("<Travel Bot >: " +  agent.getResponseMaker().getGreeting(null) +"\n");
+        chatBox.append("<Travel Bot >: We plan trips to cities in Canada, and Mexico. " +  agent.getResponseMaker().getGreeting(null) +"\n");
         chatBox.setEditable(false);
         chatBox.setFont(new Font("Serif", Font.PLAIN, 24));
         chatBox.setLineWrap(true);

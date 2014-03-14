@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class Location {
     LocationFactory lf = new LocationFactory();
     public HashMap<String, ArrayList<String>> places = new HashMap<>();
-    public String origin = "Kelowna, BC";
+    public String origin = "Kelowna";
     public String destination;
     public double tempInCelcius;
     public String weatherDescription;

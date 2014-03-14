@@ -18,7 +18,9 @@ public final class Responses {
     public static List<String> niceDest = Arrays.asList("<Dest> is very nice!", "Everybody loves <Dest>!", "<Dest> is a wonderful place!");
 
     public static List<String> activities = Arrays.asList("relax on the beach", "swim in crystal clear waters", "drink some awesome margaritas", "enjoy the beach and tan", "visit some ancient Mayan ruins", "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");
-
+    
+    public static List<String> coldactivities = Arrays.asList("build a snowman","ice skating","ice fishing","skiing", "build a quinzhee.");
+    
     public static List<String> lang = Arrays.asList("Well the national language is Spanish.", "Spanish is the native language in <Dest>, although some people do speak English", "People in <Dest> speak Spanish.");
 
     public static List<String> transport = Arrays.asList("Well people in <Dest> usually use buses. There are also government owned taxis.", "If you want to get between cities coach bus is the way to go.", "We could help set you up with a rental car if you'd like.", "You should be able to walk to most places within the city. Otherwise coach buses are a good way to get around the country.");
@@ -41,7 +43,7 @@ public final class Responses {
 
     public static List<String> simpleNo = Arrays.asList("No.", "That's not possible", "Sorry, I can't help with that.");
 
-    public static List<String> dontKnow = Arrays.asList("I do not know the answer to that.","Sorry I do not understand.");
+    public static List<String> dontKnow = Arrays.asList("I do not know the answer to that.","Sorry I do not understand.","I do not how to answer that, please give more information.");
 
     public static List<String> youreWelcome = Arrays.asList("No problem.", "You're welcome.", "Of course, anytime.", "My pleasure.");
 

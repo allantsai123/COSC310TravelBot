@@ -12,8 +12,7 @@ FILES/FOLDERS DESCRIPTION
 
 For Assignment 3:
 
-Run the MainGUI.java file which contains the Chat windows and the main class which handles user input and output.
-
+Run the MainGUI.java file which contains the Chat windows and the main class which handles user input and output. Also a minor change in the Parsers and add more destinations and more replies for the chatbot.
 
 From Before: 
 

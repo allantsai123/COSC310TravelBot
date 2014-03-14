@@ -163,7 +163,10 @@ public final class ResponseMaker {
         return "It is currently " + locationSet.get(locationSet.size() - 1).tempInCelcius + " degrees C in " + locationSet.get(locationSet.size() - 1).destination;
     }
 
+
+    
     public String getActivities() {
+    	
         String s1 = Responses.getRandomResponse(Responses.activities);
         String s2 = s1;
         while (s2.equals(s1)) {
