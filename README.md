@@ -12,11 +12,7 @@ FILES/FOLDERS DESCRIPTION
 
 For Assignment 3:
 
-Run the MainGUI.java file which contains the Chat windows and the main class which handles user input and output. Also a minor change in the Parsers and add more destinations and more replies for the chatbot.
-
-
-
-From Before: 
+Run the MainGUI.java file which contains the Chat windows and the main class which handles user input and output. Also a minor change in the Parsers and add more destinations and more replies for the chatbot. using fuzzy substring match to do spell check and update more cities in Canada.
 
 The Program class controls the ChatBot program. The class handles user input, which can be provided by Text File or in the Console. 
 
