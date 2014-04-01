@@ -21,6 +21,8 @@ public class MainGUI {
 	static String botName = "Travel Bot";
 	static int turnCount = 0;
 	
+	IO yasha = new IO();
+	
     MainGUI mainGUI;
     JFrame newFrame = new JFrame("The TravelBot started at " + Utils.getCurrentDateFull() + "\r\n" + "Powered by Google");
     JButton sendMessage;
@@ -147,7 +149,7 @@ public class MainGUI {
         
         sendMessage.addActionListener(new sendMessageButtonListener());
 
-        chatBox = new JTextArea();
+        chatBox = new JTextArea();        
         chatBox.append("<Travel Bot >: We plan trips to cities in Canada, and Mexico. " +  agent.getResponseMaker().getGreeting(null) +"\n");
         chatBox.setEditable(false);
         chatBox.setFont(new Font("Serif", Font.PLAIN, 24));
