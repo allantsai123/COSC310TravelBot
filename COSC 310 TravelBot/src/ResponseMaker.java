@@ -27,7 +27,10 @@ public final class ResponseMaker {
             return substituteParameters(Responses.getRandomResponse(Responses.farewells)) + " " + username;
         }
     }
-
+    public String getWikiInfo(String place){
+    	return wikipedia.getInfo(place)+"\nRetrieve From Wikipedia";   
+    }
+    
     public String getImBack() {
         return "Okay, I'm back. What can I help with?";
     }
@@ -37,7 +40,7 @@ public final class ResponseMaker {
     }
 
     public String getCities() {
-        String cities = "Well the biggest are ";
+        String cities = "Well the biggest cities are ";
 
         for (String s : Responses.cities) {
             cities += s + ", ";
