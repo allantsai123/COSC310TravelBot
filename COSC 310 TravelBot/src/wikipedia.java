@@ -44,14 +44,6 @@ public class wikipedia {
 		    }
 		    String s = nestedObject.getString("extract");
 
-		//    int index = s.indexOf("\n");
-
-//		    // If the returned info is longer then one paragraph this trims off the extra
-//		    // details to make the information more concise.
-//		    if(index>0){
-//		    	s = s.substring(0, index);
-//		    }
-
 		    return s;
 		 } catch (MalformedURLException e) {
 	        } catch (IOException e) {

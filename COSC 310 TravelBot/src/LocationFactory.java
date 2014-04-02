@@ -1,9 +1,15 @@
+import java.awt.Image;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -173,4 +179,5 @@ public class LocationFactory {
         }
         return false;
     }
+  
 }
