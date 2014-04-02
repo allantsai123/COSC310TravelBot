@@ -4,7 +4,8 @@ public final class Program {
     private static TravelAgent agent;
     private static String botName = "Travel Bot";
     private static int turnCount = 0;
-
+    static IO yasha = new IO();
+   
     public static void main(String[] args) {
         readArguments(args);
         startBot();
@@ -121,7 +122,8 @@ public final class Program {
             IORW.writeLine("\r\n" + turnCount + " - " + botName + ":\r\n" + message + "\r\n\r\n" + user + ":");
         } else {
             // Write out our response with header & footer
-            IORW.writeLine("\r\n" + botName + ":\r\n" + message + "\r\n\r\n" + user + ":");
+        	//yasha.print("\r\n" + botName + ":\r\n" + message + "\r\n\r\n" + user + ":");
+           IORW.writeLine("\r\n" + botName + ":\r\n" + message + "\r\n\r\n" + user + ":");
         }
     }
 }

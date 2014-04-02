@@ -11,6 +11,9 @@ public final class IORW {
     private static boolean writeToSystemOut = false;
     private static boolean forwardInputToOutput = false;
     static boolean debugOn = false;
+    
+
+    
 
     public static void setInputFile(String inputFilePath, boolean forwardInputToOutput) throws IOException {
         inputScanner = new Scanner(Paths.get(inputFilePath));
