@@ -10,10 +10,16 @@ Project Description:
 
 FILES/FOLDERS DESCRIPTION
 
-For Project: Added Google Geocoding API, Wiki API, Google Translate API,etc.
-Also added saveConversation api from Mike
+For Project:
 
-
+	Public APIs:
+	-Google places    (A3)
+	-Google Geocoding (A3)
+	-Google Translate 
+	-Wikipedia API    
+	-Google Directions
+	-Google Street View 
+	-
 
 For Assignment 3:
 
