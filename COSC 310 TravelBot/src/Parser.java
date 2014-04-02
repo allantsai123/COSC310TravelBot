@@ -24,6 +24,7 @@ public final class Parser {
 
             // In order, check for
             parseGreetingOrFarewell(parsedInput);
+            parseWikipedia(parsedInput);
             parsePleaseComeBack(parsedInput);
             parseThanks(parsedInput);
             parseDestination(parsedInput);
@@ -41,6 +42,12 @@ public final class Parser {
         return parsedInput;
     }
 
+    public static void parseWikipedia(ParsedInput parsedInput){
+    	if (parsedInput.containsAnyPhrase(ParserDictionary.wiki)){
+    		parsedInput.type=ParsedInputType.Wiki;
+    	}
+    }
+    
     private static void parseGreetingOrFarewell(ParsedInput parsedInput) {
         // Check for greetings and farewells
 
@@ -66,19 +73,35 @@ public final class Parser {
     }
 
     private static void parseDestination(ParsedInput parsedInput) {
-        String match = parsedInput.getMatchingPhrase(ParserDictionary.dest);
+        String match = parsedInput.getMatchingPhrase(ParserDictionary.Mdest);
 
         if (!match.isEmpty()) {
             parsedInput.type = ParsedInputType.SetDestination;
             parsedInput.setField("destination", StringUtils.toTitleCase(match));
+        }else{
+        	match = parsedInput.getMatchingPhrase(ParserDictionary.Cdest);
+        	if(!match.isEmpty()){
+        		parsedInput.type= ParsedInputType.SetDestination;
+        		parsedInput.setField("destination",StringUtils.toTitleCase(match));
+        	}
         }
 
-        String city = parsedInput.getMatchingPhrase(ParserDictionary.cities);
+        String city = parsedInput.getMatchingPhrase(ParserDictionary.citiesM);
 
         if (!city.isEmpty()) {
             parsedInput.type = ParsedInputType.SetDestination;
             parsedInput.setField("city", StringUtils.toTitleCase(city));
+            parsedInput.setField("destiantion", "Mexico");
+            return;
+        }else{
+        	city = parsedInput.getMatchingPhrase(ParserDictionary.citiesC);
+        	 if (!city.isEmpty()) {
+                 parsedInput.type = ParsedInputType.SetDestination;
+                 parsedInput.setField("city", StringUtils.toTitleCase(city));
+                 parsedInput.setField("destiantion", "Canada");
+                 return;
         }
+        	 }
     }
 
     private static void parseWeather(ParsedInput parsedInput) {
@@ -100,7 +123,14 @@ public final class Parser {
         if (parsedInput.containsAnyPhrase(ParserDictionary.distance)) {
             parsedInput.type = ParsedInputType.Distance;
 
-            List<String> matches = parsedInput.getMatchingPhrases(ParserDictionary.cities);
+            List<String> matches = new ArrayList<>();
+            		
+        	for(String s: parsedInput.getMatchingPhrases(ParserDictionary.citiesM)){
+        		matches.add(s);
+        	}
+        	for(String s: parsedInput.getMatchingPhrases(ParserDictionary.citiesC)){
+        		matches.add(s);
+        	}
 
             if (matches.size() == 0) {
                 // No cities given

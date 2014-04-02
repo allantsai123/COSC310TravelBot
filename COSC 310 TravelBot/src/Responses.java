@@ -13,8 +13,8 @@ public final class Responses {
 
     public static List<String> noRestaurants = Arrays.asList("There aren't any places that I'd recommend.", "There may be some local places, but nothing outstanding.", "It's all about street vendors and local food there.");
 
-    public static List<String> cities = Arrays.asList("Mexico City", "Tijuana", "Juarez", "Cancun", "Mexicali", "Chihuahua");
-
+   public static List<String> cities = Arrays.asList("Mexico City", "Tijuana", "Juarez", "Cancun", "Mexicali", "Chihuahua","Toronto","Montreal","Calgary","Ottawa","Edmonton");
+   
     public static List<String> niceDest = Arrays.asList("<Dest> is very nice!", "Everybody loves <Dest>!", "<Dest> is a wonderful place!");
 
     public static List<String> activities = Arrays.asList("relax on the beach", "swim in crystal clear waters", "drink some awesome margaritas", "enjoy the beach and tan", "visit some ancient Mayan ruins", "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");

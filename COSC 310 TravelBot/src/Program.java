@@ -4,7 +4,7 @@ public final class Program {
     private static TravelAgent agent;
     private static String botName = "Travel Bot";
     private static int turnCount = 0;
-    static IO yasha = new IO();
+ 
    
     public static void main(String[] args) {
         readArguments(args);

@@ -85,7 +85,7 @@ public class LocationFactory {
      */
     private static boolean setWeather(Location loc) {
 		/*
-		 * Construct URL from paramters, open the stream, read it, and create a JSON object from it.
+		 * Construct URL from parameters, open the stream, read it, and create a JSON object from it.
 		 */
         if (loc.destination == null) return false;
         String url = "http://api.openweathermap.org/data/2.5/weather?q=" + URLEncoder.encode(loc.destination);

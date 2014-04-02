@@ -4,8 +4,10 @@ public class ParserDictionary {
     public static List<String> greet = Arrays.asList("good morning", "good afternoon", "good evening", "hi", "hello", "hey", "greetings", "howdy");
     public static List<String> leave = Arrays.asList("good night", "bye", "goodbye", "farewell", "see ya", "see you later", "take care", "ciao");
     public static List<String> comeBack = Arrays.asList("please help", "come back", "please come back", "i need help", "that's rude");
-    public static List<String> dest = Arrays.asList("Mexico","Canada");
-    public static List<String> cities = Arrays.asList("Regina","Ottawa","Victoria","Winnipeg","Halifax","Quebec City","Montreal","Saskatoon", "Edmonton", "Vancouver", "Mexico City", "Calgary", "Tijuana", "Juarez", "Cancun", "Mexicali", "Chihuahua", "Kelowna", "Chichen Itza", "Toronto", "Nicaragua", "Costa Rica", "Belize");
+    public static List<String> Mdest = Arrays.asList("Mexico");
+    public static List<String> Cdest = Arrays.asList("Canada");
+    public static List<String> citiesC = Arrays.asList("Regina","Ottawa","Victoria","Winnipeg","Halifax","Quebec City","Montreal","Saskatoon", "Edmonton", "Vancouver", "Calgary", "Kelowna", "Toronto");
+    public static List<String> citiesM = Arrays.asList("Mexico City", "Tijuana", "Juarez", "Cancun", "Mexicali", "Chihuahua","Leon","Culiacan");
     public static List<String> askForCities = Arrays.asList("cities", "places", "towns", "destinations");
     public static List<String> thanks = Arrays.asList("thanks", "thank you", "appreciated");
     public static List<String> travelMethods = Arrays.asList("fly", "flight", "plane", "boat", "cruise", "bus", "drive", "car");
@@ -18,7 +20,7 @@ public class ParserDictionary {
     public static List<String> lang = Arrays.asList("english", "spanish", "french");
     public static List<String> weather = Arrays.asList("weather", "temperature", "rain", "sun", "warm", "cool", "time of year");
     public static List<String> seasons = Arrays.asList("spring", "summer", "fall", "winter");
-
+    public static List<String> wiki = Arrays.asList("more info", "tell me", "about","information","info","wiki");
   // Stores the phrase lists as a list of phrases, each phrase being a list of words in the phrase
     private static HashMap<List<String>, List<List<String>>> cachedLists = new HashMap<>();
 

@@ -20,8 +20,7 @@ public class MainGUI {
 	static TravelAgent agent;
 	static String botName = "Travel Bot";
 	static int turnCount = 0;
-	
-	IO yasha = new IO();
+
 	
     MainGUI mainGUI;
     JFrame newFrame = new JFrame("The TravelBot started at " + Utils.getCurrentDateFull() + "\r\n" + "Powered by Google");

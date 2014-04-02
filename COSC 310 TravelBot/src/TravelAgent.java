@@ -44,6 +44,10 @@ public class TravelAgent {
                 response = greeting(parsedInput);
                 break;
 
+            case Wiki:
+            	response = responseMaker.getWikiInfo(savedInputs.get("city"));
+            	break;
+                
             case Food:
                 response = responseMaker.getLocalFood();
                 break;
