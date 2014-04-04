@@ -45,6 +45,7 @@ public class LocationFactory {
 		 */
         String url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=" + URLEncoder.encode(loc.origin) + "&destinations=" + URLEncoder.encode(loc.destination) + "&mode=driving&sensor=false&language=en-EN";
 		
+       // System.out.println(url);
 		/*
 		 *  We call the openStream() method from the URL class, and read the input line by line with the Scanner class.
 		 *  On error return 0
@@ -123,7 +124,7 @@ public class LocationFactory {
 		 */
         return false;
     }
-
+    //geocoding API
     private static double[] geocode(String s) throws IOException {
         String geocodeUrl = "http://maps.googleapis.com/maps/api/geocode/json?address=";
         geocodeUrl += URLEncoder.encode(s) + "&sensor=true";
@@ -146,12 +147,13 @@ public class LocationFactory {
         }
         return new double[]{0, 0};
     }
-
+    //places API
     public static boolean getPlaces(Location loc, String keyword) {
         ArrayList toReturn = new ArrayList();
 
         try {
             double[] geo = geocode(loc.destination);
+            //System.out.println(geo[0]+","+geo[1]);
             String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
                     "location=" + geo[0] + "," + geo[1] + "&types=" + keyword +
                     "&radius=100&sensor=false&key=AIzaSyD-GnR8Af9fm57GuOz9kdLTzjPMjfPeXiQ";
