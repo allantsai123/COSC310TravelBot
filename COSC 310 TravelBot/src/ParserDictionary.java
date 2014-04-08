@@ -20,7 +20,7 @@ public class ParserDictionary {
     public static List<String> lang = Arrays.asList("english", "spanish", "french");
     public static List<String> weather = Arrays.asList("weather", "temperature", "rain", "sun", "warm", "cool", "time of year");
     public static List<String> seasons = Arrays.asList("spring", "summer", "fall", "winter");
-    public static List<String> wiki = Arrays.asList("more info", "tell me", "about","information","info","wiki");
+    public static List<String> wiki = Arrays.asList("tell me more information","more info", "tell me more", "about","information","info","wiki");
   // Stores the phrase lists as a list of phrases, each phrase being a list of words in the phrase
     private static HashMap<List<String>, List<List<String>>> cachedLists = new HashMap<>();
 
