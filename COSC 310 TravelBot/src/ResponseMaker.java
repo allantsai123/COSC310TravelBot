@@ -3,16 +3,22 @@ import java.util.*;
 public final class ResponseMaker {
     List<Location> locationSet = new ArrayList<>();
     Location l;
-    String place ="";
+    private String place ="";
 
     public ResponseMaker() {
     }
 
     public String getDirections(){
-    	String res = "Here are the directions to "+place+":\n";
-    	res+=l.getDirection(place);
+    	
+    	place = l.getPlaces(place);
+    	//System.out.println("output of places: "+place);
+    	String res = "Here are the directions from Kelowna to your destination:\n";
+    	res += l.getDirections(place);
+    	
     	return res;
     }
+    
+    
     public String getGreeting(String username) {
         if (StringUtils.isNullOrEmpty(username)) {
             return substituteParameters(Responses.getRandomResponse(Responses.greetings));
@@ -106,7 +112,8 @@ public final class ResponseMaker {
         if (l.getPlaces("food") == null) {
             response += Responses.getRandomResponse(Responses.noRestaurants);
         } else {
-            response += l.getPlaces("food") + ".";
+        	for(int i=0;i<3;i++)
+        		response += l.getPlaces("food") + "\n";
         }
         return response;
     }

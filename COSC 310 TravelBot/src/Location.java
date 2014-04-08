@@ -30,31 +30,38 @@ public class Location {
         return "Flying to " + this.destination + ", from " + this.origin + " would cost approximately $" + lf.round(this.distanceFromOrigin / 2.02, 2);
     }
 
+    //Direction API
+    public String getDirections(String dir){
+    	try{
+    		if(placesAddress.containsKey(dir)){
+    		
+    			return lf.getDirections(this, placesAddress.get(dir));
+    		}
+    	}catch(NullPointerException e){
+    		return "Tell me where you would like to go before I find you the directions.";
+    	}
+    	return "Tell me where you would like to go before I find you the directions.";
+    }
+    
     //places API
     public String getPlaces(String keyword) {
     	  if (!places.containsKey(keyword)) {
               if (!lf.getPlaces(this, keyword))
                   return null;
           } 
-          ArrayList<PlaceLoc> pl = places.get(keyword);
-          // Build a record of directions to each place found for later use.
+    
+            ArrayList<PlaceLoc> pl = places.get(keyword);
           for(PlaceLoc p : pl){
-          	placesAddress.put(p.getName(), p.getAddress());
-          }
-          int r = new java.util.Random().nextInt(pl.size());
-          String name = pl.get(r).getName();
-          return name;
-    }
-    
-    
-    public String getDirection(String dir){
-    	try{
-    		if(placesAddress.containsKey(dir)){
-    			return lf.getDirections(this,placesAddress.get(dir));
-    		}
-    	}catch(NullPointerException e){
-    		return "Tell me where you would like to go before I find you the directions.";
-    	}
-    	return "I do not know how to get to "+ dir+".";
+            	placesAddress.put(p.getName(), p.getAddress());
+            }
+          	int r = new java.util.Random().nextInt(pl.size());
+            String name = pl.get(r).getName();
+//            String name ="";
+//            for (int i=0;i<3;i++)
+//            	name+=pl.get(i).getName()+"\n";
+            return name;
+         
+            
+          
     }
 }

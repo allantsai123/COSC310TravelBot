@@ -25,9 +25,11 @@ public final class Parser {
             // In order, check for
             parseGreetingOrFarewell(parsedInput);
             parseWikipedia(parsedInput);
+            parseDirections(parsedInput);
             parsePleaseComeBack(parsedInput);
             parseThanks(parsedInput);
             parseDestination(parsedInput);
+            parseGetFood(parsedInput);
             parseWeather(parsedInput);
             parseTravelMethod(parsedInput);
             parseHowFar(parsedInput);
@@ -36,8 +38,8 @@ public final class Parser {
             parseBudget(parsedInput);
             parseActivities(parsedInput);
             parseGetAround(parsedInput);
-            parseGetFood(parsedInput);
-            parseDirections(parsedInput);
+            
+          
         }
 
         return parsedInput;
