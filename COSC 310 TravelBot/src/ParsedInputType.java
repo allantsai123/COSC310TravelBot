@@ -10,6 +10,7 @@ public enum ParsedInputType {
     SetDestination,         //
     CheckWeather,           //
     Distance,
+    Directions,				//direction
     Activity,               //
     Food,                   // Just added food case for more dialogue if possible.
     Accomodations,

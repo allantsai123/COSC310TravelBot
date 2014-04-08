@@ -3,10 +3,16 @@ import java.util.*;
 public final class ResponseMaker {
     List<Location> locationSet = new ArrayList<>();
     Location l;
+    String place ="";
 
     public ResponseMaker() {
     }
 
+    public String getDirections(){
+    	String res = "Here are the directions to "+place+":\n";
+    	res+=l.getDirection(place);
+    	return res;
+    }
     public String getGreeting(String username) {
         if (StringUtils.isNullOrEmpty(username)) {
             return substituteParameters(Responses.getRandomResponse(Responses.greetings));

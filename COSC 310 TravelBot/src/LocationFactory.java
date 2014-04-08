@@ -147,6 +147,63 @@ public class LocationFactory {
         }
         return new double[]{0, 0};
     }
+    
+    //directions API
+    public static String getDirections(Location loc, String dest){
+    	String directions = "";
+    	try {
+    		double[] geoOrigin = geocode(loc.origin);
+    		double[] geoDest = geocode(dest);
+    		
+            String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" +
+            geoOrigin[0] +","+ geoOrigin[1] + "&destination=" + geoDest[0] + "," + geoDest[1] +
+            "&sensor=false&key=AIzaSyB8uxek_r9kgGZvM4pJOI20R04Y8RsLxj0";
+            
+            Scanner scan = new Scanner(new URL(url).openStream());
+            String str = new String();
+            while (scan.hasNext()) {
+                str += scan.nextLine() + "\n";
+            }
+            scan.close();
+            
+            JSONObject json = new JSONObject(str);
+
+            if (json.getString("status").equalsIgnoreCase("ok")) {
+            	
+            	JSONArray route = json.getJSONArray("routes");
+            	JSONArray legs = route.getJSONObject(0).getJSONArray("legs");
+            	JSONArray steps = legs.getJSONObject(0).getJSONArray("steps");
+            	
+            	JSONObject direc;
+            	
+            	JSONObject dist;
+            	
+            	int index = 0;
+            	while (!steps.isNull(index) && index < steps.length()) {
+                    direc = steps.getJSONObject(index);	//  directions
+                    dist = direc.getJSONObject("distance");// distance
+                    
+                    String step = direc.get("html_instructions") + " for "+ dist.get("text") +".\n"; 
+                    
+                    step = step.replaceAll("\\<[^>]*>","");  
+                    directions += step; 
+                    index++;
+                }
+                directions += "Your destination is at " + dest + ".\n";
+                directions += "Total distance is " +legs.getJSONObject(0).getJSONObject("distance").getString("text") +
+                		" and will take "+ legs.getJSONObject(0).getJSONObject("duration").getString("text") + " to drive there.";
+                return directions;
+            }
+    	} catch (IOException e) {
+            return null;
+        } catch (NullPointerException e){
+        	return null;
+        }
+    	return null;
+    }
+    
+    
+    
     //places API
     public static boolean getPlaces(Location loc, String keyword) {
         ArrayList toReturn = new ArrayList();
@@ -156,13 +213,15 @@ public class LocationFactory {
             //System.out.println(geo[0]+","+geo[1]);
             String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
                     "location=" + geo[0] + "," + geo[1] + "&types=" + keyword +
-                    "&radius=100&sensor=false&key=AIzaSyD-GnR8Af9fm57GuOz9kdLTzjPMjfPeXiQ";
+                    "&radius=6000&sensor=false&key=AIzaSyD-GnR8Af9fm57GuOz9kdLTzjPMjfPeXiQ";
             Scanner scan = new Scanner(new URL(url).openStream());
             String str = new String();
             while (scan.hasNext()) {
                 str += scan.nextLine() + "\n";
 
             }
+            scan.close();
+            
             JSONObject json = new JSONObject(str);
             if (json.getString("status").equalsIgnoreCase("ok")) {
                 JSONArray j = json.getJSONArray("results");
@@ -170,7 +229,12 @@ public class LocationFactory {
                 JSONObject tmp;
                 while (!j.isNull(index) && index < 4) {
                     tmp = j.getJSONObject(index);
-                    toReturn.add(tmp.getString("name"));// + ", " + tmp.getString("vicinity")); Trimmed this off to just get place names.
+                    String name = tmp.getString("name");
+                    String address = tmp.getString("vicinity");
+                    PlaceLoc place = new PlaceLoc(name,address);                   
+                    
+                    toReturn.add(place);// + ", " + tmp.getString("vicinity")); Trimmed this off to just get place names.
+                    
                     index++;
                 }
                 loc.places.put(keyword, toReturn);

@@ -37,9 +37,15 @@ public final class Parser {
             parseActivities(parsedInput);
             parseGetAround(parsedInput);
             parseGetFood(parsedInput);
+            parseDirections(parsedInput);
         }
 
         return parsedInput;
+    }
+    public static void parseDirections(ParsedInput parsedInput){
+    	if(parsedInput.containsAnyPhrase(ParserDictionary.Directions)){
+    		parsedInput.type=ParsedInputType.Directions;
+    	}
     }
 
     public static void parseWikipedia(ParsedInput parsedInput){

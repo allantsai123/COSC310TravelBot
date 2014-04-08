@@ -3,7 +3,8 @@ import java.util.HashMap;
 
 public class Location {
     LocationFactory lf = new LocationFactory();
-    public HashMap<String, ArrayList<String>> places = new HashMap<>();
+    public HashMap<String, ArrayList<PlaceLoc>> places = new HashMap<>();
+    public HashMap<String, String> placesAddress = new HashMap<>();
     public String origin = "Kelowna BC Canada";
     public String destination;
     public double tempInCelcius;
@@ -29,15 +30,31 @@ public class Location {
         return "Flying to " + this.destination + ", from " + this.origin + " would cost approximately $" + lf.round(this.distanceFromOrigin / 2.02, 2);
     }
 
+    //places API
     public String getPlaces(String keyword) {
-        if (!places.containsKey(keyword)) {
-            if (!lf.getPlaces(this, keyword))
-                return null;
-        }
-        ArrayList<String> pl = places.get(keyword);
-        String returnString = "";
-        for (String s : pl)
-            returnString += s + "\n";
-        return returnString;
+    	  if (!places.containsKey(keyword)) {
+              if (!lf.getPlaces(this, keyword))
+                  return null;
+          } 
+          ArrayList<PlaceLoc> pl = places.get(keyword);
+          // Build a record of directions to each place found for later use.
+          for(PlaceLoc p : pl){
+          	placesAddress.put(p.getName(), p.getAddress());
+          }
+          int r = new java.util.Random().nextInt(pl.size());
+          String name = pl.get(r).getName();
+          return name;
+    }
+    
+    
+    public String getDirection(String dir){
+    	try{
+    		if(placesAddress.containsKey(dir)){
+    			return lf.getDirections(this,placesAddress.get(dir));
+    		}
+    	}catch(NullPointerException e){
+    		return "Tell me where you would like to go before I find you the directions.";
+    	}
+    	return "I do not know how to get to "+ dir+".";
     }
 }
