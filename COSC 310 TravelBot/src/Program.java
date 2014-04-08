@@ -122,7 +122,7 @@ public final class Program {
             IORW.writeLine("\r\n" + turnCount + " - " + botName + ":\r\n" + message + "\r\n\r\n" + user + ":");
         } else {
             // Write out our response with header & footer
-        	//yasha.print("\r\n" + botName + ":\r\n" + message + "\r\n\r\n" + user + ":");
+        	
            IORW.writeLine("\r\n" + botName + ":\r\n" + message + "\r\n\r\n" + user + ":");
         }
     }
