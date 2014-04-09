@@ -124,6 +124,7 @@ public class LocationFactory {
 		 */
         return false;
     }
+   
     //geocoding API
     private static double[] geocode(String s) throws IOException {
         String geocodeUrl = "http://maps.googleapis.com/maps/api/geocode/json?address=";
@@ -148,6 +149,34 @@ public class LocationFactory {
         return new double[]{0, 0};
     }
     
+//  //Street view API
+//    //http://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,-73.988354&fov=90&heading=235&pitch=10&sensor=false
+//
+//    public static void getView(String dest) throws IOException{
+//    	
+//    	
+//    	double[] geoDest = geocode(dest);
+//    	URL url =null;
+//    	
+//		try {
+//			geoDest = geocode(dest);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//    	Image image = null;
+//    	url = new URL("http://maps.googleapis.com/maps/api/streetview?size=400x400&location="+ geoDest[0] + "," + geoDest[1] +"&fov=90&heading=235&pitch=10&sensor=false");
+//    	image = ImageIO.read(url);
+//    	
+//    	JFrame frame = new JFrame();
+//    	frame.setSize(640,640);
+//    	JLabel label = new JLabel(new ImageIcon(image));
+//    	frame.add(label);
+//    	frame.setVisible(true);
+//    	
+//    }
+  
+    
+    
     //directions API
     public static String getDirections(Location loc, String dest){
     	String directions = "";
@@ -158,6 +187,8 @@ public class LocationFactory {
             String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" +
             geoOrigin[0] +","+ geoOrigin[1] + "&destination=" + geoDest[0] + "," + geoDest[1] +
             "&sensor=false&key=AIzaSyB8uxek_r9kgGZvM4pJOI20R04Y8RsLxj0";
+            
+           // System.out.println("TTTTTEsting: "+ "http://maps.googleapis.com/maps/api/streetview?size=400x400&location="+ geoDest[0] + "," + geoDest[1] +"&fov=90&heading=235&pitch=10&sensor=false");
             
             Scanner scan = new Scanner(new URL(url).openStream());
             String str = new String();

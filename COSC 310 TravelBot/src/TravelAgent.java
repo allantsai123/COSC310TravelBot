@@ -48,8 +48,25 @@ public class TravelAgent {
             	response=responseMaker.getDirections();
             	break;
             	
+            case streetView:
+            	//System.out.println(savedInputs.get("city"));
+            	
+            	if(savedInputs.get("city").equalsIgnoreCase("vancouver")){
+            		response = responseMaker.getstreetView("Robinson Street, Vancouver");
+            	}
+            	if(savedInputs.get("city").equalsIgnoreCase("Mexico City")){
+            		response = responseMaker.getstreetView("Centro, Mexico");
+            	}else{
+            	
+            	response = responseMaker.getstreetView(savedInputs.get("city"));
+            	}
+            	//System.out.println(savedInputs.get("city"));
+            	break;
+            	
             case Wiki:
+        
             	response = responseMaker.getWikiInfo(savedInputs.get("city"));
+            	
             	break;
                 
             case Food:

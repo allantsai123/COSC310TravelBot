@@ -11,6 +11,7 @@ public enum ParsedInputType {
     CheckWeather,           //
     Distance,
     Directions,				//direction
+    streetView,				//street view
     Activity,               //
     Food,                   // Just added food case for more dialogue if possible.
     Accomodations,

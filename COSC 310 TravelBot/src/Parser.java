@@ -38,12 +38,19 @@ public final class Parser {
             parseBudget(parsedInput);
             parseActivities(parsedInput);
             parseGetAround(parsedInput);
+            parseImage(parsedInput);
             
           
         }
 
         return parsedInput;
     }
+    public static void parseImage(ParsedInput parsedInput){
+    	if(parsedInput.containsAnyPhrase(ParserDictionary.streetView)){
+    		parsedInput.type=ParsedInputType.streetView;
+    	}
+    }
+    
     public static void parseDirections(ParsedInput parsedInput){
     	if(parsedInput.containsAnyPhrase(ParserDictionary.Directions)){
     		parsedInput.type=ParsedInputType.Directions;

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 public final class ResponseMaker {
@@ -17,8 +18,19 @@ public final class ResponseMaker {
     	
     	return res;
     }
-    
-    
+   public String getstreetView(String place){
+	   		try {
+				streetview.display(place);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	   return "Here is the picture. Please enter a more specific address of the destination if there is no image output.";
+    }
+   public String getWikiInfo(String place){
+   	return wikipedia.getInfo(place)+"\nRetrieve From Wikipedia";   
+   }
+   
     public String getGreeting(String username) {
         if (StringUtils.isNullOrEmpty(username)) {
             return substituteParameters(Responses.getRandomResponse(Responses.greetings));
@@ -39,9 +51,7 @@ public final class ResponseMaker {
             return substituteParameters(Responses.getRandomResponse(Responses.farewells)) + " " + username;
         }
     }
-    public String getWikiInfo(String place){
-    	return wikipedia.getInfo(place)+"\nRetrieve From Wikipedia";   
-    }
+   
     
     public String getImBack() {
         return "Okay, I'm back. What can I help with?";

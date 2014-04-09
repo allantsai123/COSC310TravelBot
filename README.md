@@ -44,6 +44,14 @@ For the final Project:
 	-Google Street View 
 		will get a picture of the geo-coordiantes and output it onto a window. this api let the user be albe to see the destenation. 
 
+		limitations: Not every city has an image on this API, sometimes location has to be in specific street instead of a city name. 
+
+		Sample Output:
+			Travel Bot: Calgary, Canada is very nice!
+			User:show me an image
+			(A popout window with the image)
+			Travel Bot: Here is the picture. Please enter a more specific address of the destination if there is no image output.
+
 	-Google Translate
 		
 
