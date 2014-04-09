@@ -58,9 +58,7 @@ public class Location {
           	int r = new java.util.Random().nextInt(pl.size());
             String name = pl.get(r).getName();
             System.out.println("name:"+name);
-//            String name ="";
-//            for (int i=0;i<3;i++)
-//            	name+=pl.get(i).getName()+"\n";
+
             return name;
          
             

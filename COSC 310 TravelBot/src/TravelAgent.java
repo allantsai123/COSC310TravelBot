@@ -52,7 +52,7 @@ public class TravelAgent {
                 break;
 
             case Directions:
-            	response=responseMaker.getDirections();
+            	response=responseMaker.getDirections(savedInputs.get("city"));
             	break;
             	
             case streetView:

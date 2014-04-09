@@ -15,7 +15,7 @@ public class Trans {
 		
 		//System.out.println("huh:"+input);
 		
-		translatedText += Translate.execute("Kelowa is an awesome place.", Language.ENGLISH, Language.FRENCH);
+		translatedText += Translate.execute(input, Language.ENGLISH, Language.FRENCH);
 			 
         
 		return translatedText;

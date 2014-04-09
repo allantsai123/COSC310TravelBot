@@ -159,9 +159,7 @@ public class LocationFactory {
             String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" +
             geoOrigin[0] +","+ geoOrigin[1] + "&destination=" + geoDest[0] + "," + geoDest[1] +
             "&sensor=false&key=AIzaSyB8uxek_r9kgGZvM4pJOI20R04Y8RsLxj0";
-            
-            //System.out.println("TTTTTEsting: "+ "http://maps.googleapis.com/maps/api/streetview?size=400x400&location="+ geoDest[0] + "," + geoDest[1] +"&fov=90&heading=235&pitch=10&sensor=false");
-            
+          
             Scanner scan = new Scanner(new URL(url).openStream());
             String str = new String();
             while (scan.hasNext()) {
