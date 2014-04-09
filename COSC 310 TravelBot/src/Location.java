@@ -45,6 +45,7 @@ public class Location {
     
     //places API
     public String getPlaces(String keyword) {
+    	System.out.println("This is in the location.java: "+keyword);
     	  if (!places.containsKey(keyword)) {
               if (!lf.getPlaces(this, keyword))
                   return null;
@@ -56,6 +57,7 @@ public class Location {
             }
           	int r = new java.util.Random().nextInt(pl.size());
             String name = pl.get(r).getName();
+            System.out.println("name:"+name);
 //            String name ="";
 //            for (int i=0;i<3;i++)
 //            	name+=pl.get(i).getName()+"\n";

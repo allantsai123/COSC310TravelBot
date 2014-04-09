@@ -45,6 +45,13 @@ For the final Project:
 		This API lets the user input a sentence and the travelbot will be able to translate that sentence from English into French.
 
 		Sample Output:
+
+			Travel Bot:Hello. Can I help you plan a trip?
+
+			User: translate kelowna is an awesome place.
+			
+			Travel Bot: The French translation is: Kelowa est un endroit génial.
+
 			
 
 	-Google Street View 

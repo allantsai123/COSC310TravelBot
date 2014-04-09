@@ -3,7 +3,7 @@ import java.util.*;
 public class TravelAgent {
     private ResponseMaker responseMaker = new ResponseMaker();
     private Location l;
-    String inputSen = "";
+    String input = "";
 
     // Agent state
     private ArrayList<ParsedInput> previousInputs = new ArrayList<>();
@@ -30,6 +30,7 @@ public class TravelAgent {
         // Save all user entered variables
         savedInputs.putAll(parsedInput.inputs);
         // Check which kind of question or statement the user inputted
+        
         switch (parsedInput.getType()) {
 
             case SetDestination:
@@ -38,7 +39,7 @@ public class TravelAgent {
                 break;
            //translate
             case Translate:
-            	String sen = getSenToTranslate(inputSen);
+            	String sen = getSenToTranslate(input);
             	response=responseMaker.getTranslate(sen);
             	break;
                 
@@ -176,7 +177,23 @@ public class TravelAgent {
         }
         return response;
     }
-
+    private String getSenToTranslate(String inputSen){
+    	System.out.println("THis will be output" +inputSen);
+    	int index=-1;
+    	int len = 9;
+    	index = inputSen.indexOf("translate");
+    	if(index==-1){
+    		index=inputSen.indexOf("say");
+    		len = 3;
+    	}
+    	String sen="";
+    	if(index != -1){
+    		sen = inputSen.substring(index+len+1,inputSen.length());
+    	}
+    	System.out.println("this is the sentence: "+sen);
+    	return sen;
+	}
+    
     private String getDebugStats() {
         String stats = "";
 
@@ -200,22 +217,6 @@ public class TravelAgent {
         userHasSaidFarewell = true;
         return responseMaker.getFarewell(savedInputs.get("username"));
     }
-
-    private String getSenToTranslate(String inputSen){
-    	int index=-1;
-    	int len = 9;
-    	index = inputSen.indexOf("translate");
-    	if(index==-1){
-    		index=inputSen.indexOf("say");
-    		len = 3;
-    	}
-    	String sen="";
-    	if(index != -1){
-    		sen = inputSen.substring(index+len+1,inputSen.length());
-    	}
-    	return sen;
-	}
-    
     
     private String pleaseComeBack(ParsedInput parsedInput) {
         userHasSaidFarewell = false;

@@ -5,17 +5,17 @@ public final class ResponseMaker {
     List<Location> locationSet = new ArrayList<>();
     Location l;
     private String place ="";
-
     public ResponseMaker() {
     }
     
     public String getTranslate(String sentence) throws Exception{
-    	System.out.println("Allan cool" + sentence);
+   
     	return Trans.translate(sentence);
     }
 
     public String getDirections(){
-    	
+    	System.out.println("calgary: "+l.getPlaces("calgary"));
+    	System.out.println("Output b4: "+place);
     	place = l.getPlaces(place);
     	System.out.println("output of places: "+place);
     	String res = "Here are the directions from Kelowna to your destination:\n";

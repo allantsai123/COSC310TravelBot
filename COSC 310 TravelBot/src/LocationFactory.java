@@ -214,9 +214,11 @@ public class LocationFactory {
         try {
             double[] geo = geocode(loc.destination);
             //System.out.println(geo[0]+","+geo[1]);
+  
             String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
                     "location=" + geo[0] + "," + geo[1] + "&types=" + keyword +
                     "&radius=6000&sensor=false&key=AIzaSyD-GnR8Af9fm57GuOz9kdLTzjPMjfPeXiQ";
+   
             Scanner scan = new Scanner(new URL(url).openStream());
             String str = new String();
             while (scan.hasNext()) {
@@ -240,6 +242,7 @@ public class LocationFactory {
                     
                     index++;
                 }
+                
                 loc.places.put(keyword, toReturn);
                 return true;
             }

@@ -7,6 +7,8 @@ public final class Parser {
         ParsedInput parsedInput = new ParsedInput();
 
         String userMsgLower = userMessage.toLowerCase().trim();
+        
+        
         if (userMsgLower.compareTo("exit") == 0) System.exit(0);
         if (userMsgLower.isEmpty()) {
             parsedInput.type = ParsedInputType.None;
@@ -20,8 +22,9 @@ public final class Parser {
             parsedInput.type = ParsedInputType.Debug_Enable;
         } else {
             // Create the token collection
+        	//System.out.println("USER MSG: "+userMessage);
             parsedInput.tokenCollection.parse(userMessage);
-
+       
             // In order, check for
             parseGreetingOrFarewell(parsedInput);
             parseWikipedia(parsedInput);
