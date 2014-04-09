@@ -41,20 +41,22 @@ For the final Project:
 			 Travel Bot:Vancouver (/væ??ku?v?r/ or /væn?ku?v?r/), officially the City of Vancouver, is a coastal seaport city on the mainland of British Columbia, Canada. The 2011 census recorded 603,502 people in the city, making it the eighth largest Canadian municipality. Vancouver is one of the most ethnically and linguistically diverse cities in Canada; 52% of its residents have a first language other than English. The Greater Vancouver area of around 2.4 million inhabitants is the third most populous metropolitan area in the country and the most populous in Western Canada.The City of Vancouver encompasses a land area of about 114 square kilometres, giving it a population density of about 5,249 people per square kilometre (13,590 per square mile). Vancouver is the most densely populated Canadian municipality, and the fourth most densely populated city over 250,000 residents in North America, behind New York City, San Francisco, and Mexico City.
 			 Retrieve From Wikipedia
 
+	-Bing Translate
+		This API lets the user input a sentence and the travelbot will be able to translate that sentence from English into French.
+
+		Sample Output:
+			
+
 	-Google Street View 
 		will get a picture of the geo-coordiantes and output it onto a window. this api let the user be albe to see the destenation. 
-
-		limitations: Not every city has an image on this API, sometimes location has to be in specific street instead of a city name. 
-
+		
 		Sample Output:
 			Travel Bot: Calgary, Canada is very nice!
 			User:show me an image
 			(A popout window with the image)
 			Travel Bot: Here is the picture. Please enter a more specific address of the destination if there is no image output.
 
-	-Google Translate
-		
-
+		Limitations: Not every city has an image on this API, sometimes location has to be in specific street instead of a city name. 
 
 For Assignment 3:
 

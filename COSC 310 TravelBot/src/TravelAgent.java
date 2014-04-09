@@ -3,6 +3,7 @@ import java.util.*;
 public class TravelAgent {
     private ResponseMaker responseMaker = new ResponseMaker();
     private Location l;
+    String inputSen = "";
 
     // Agent state
     private ArrayList<ParsedInput> previousInputs = new ArrayList<>();
@@ -18,7 +19,7 @@ public class TravelAgent {
         // TODO reset state, delete memory etc
     }
 
-    public String getResponse(ParsedInput parsedInput) {
+    public String getResponse(ParsedInput parsedInput) throws Exception {
         String response = "";
 
         // TravelBot doesn't have time for annoying users ;) (unless they're sorry)
@@ -35,7 +36,12 @@ public class TravelAgent {
                 response = responseMaker.getDestinationInfo(savedInputs.get("destination"), savedInputs.get("city"));
                 l = new Location(savedInputs.get("destination"));
                 break;
-
+           //translate
+            case Translate:
+            	String sen = getSenToTranslate(inputSen);
+            	response=responseMaker.getTranslate(sen);
+            	break;
+                
             case TooLong:
                 response = "Sorry, your message is too long. I don't have time to read that.";
                 break;
@@ -195,6 +201,22 @@ public class TravelAgent {
         return responseMaker.getFarewell(savedInputs.get("username"));
     }
 
+    private String getSenToTranslate(String inputSen){
+    	int index=-1;
+    	int len = 9;
+    	index = inputSen.indexOf("translate");
+    	if(index==-1){
+    		index=inputSen.indexOf("say");
+    		len = 3;
+    	}
+    	String sen="";
+    	if(index != -1){
+    		sen = inputSen.substring(index+len+1,inputSen.length());
+    	}
+    	return sen;
+	}
+    
+    
     private String pleaseComeBack(ParsedInput parsedInput) {
         userHasSaidFarewell = false;
         return responseMaker.getImBack();

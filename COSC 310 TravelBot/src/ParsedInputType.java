@@ -26,6 +26,7 @@ public enum ParsedInputType {
     Debug_Reset,
     Debug_ShowStats,
     Debug_Enable,
+    Translate,				//translate
     Wiki;
 
     public boolean isWellFormed() {

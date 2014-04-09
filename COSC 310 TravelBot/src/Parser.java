@@ -39,11 +39,16 @@ public final class Parser {
             parseActivities(parsedInput);
             parseGetAround(parsedInput);
             parseImage(parsedInput);
-            
+            parseTrans(parsedInput);
           
         }
 
         return parsedInput;
+    }
+    public static void parseTrans(ParsedInput parsedInput){
+    	if(parsedInput.containsAnyPhrase(ParserDictionary.translate)){
+    		parsedInput.type=ParsedInputType.Translate;
+    	}
     }
     public static void parseImage(ParsedInput parsedInput){
     	if(parsedInput.containsAnyPhrase(ParserDictionary.streetView)){

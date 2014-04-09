@@ -79,7 +79,7 @@ public final class Program {
         }
     }
 
-    private static void readParsePrintLoop() {
+    private static void readParsePrintLoop() throws Exception {
         String userInput = "";
         String response = "";
 

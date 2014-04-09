@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -193,7 +194,12 @@ public class MainGUI {
             ParsedInput parsedInput = Parser.parseUserMessage(userInput);
 
             // Send parsed messaged to agent
-            response = agent.getResponse(parsedInput);
+            try {
+				response = agent.getResponse(parsedInput);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
             // Display response to user
            

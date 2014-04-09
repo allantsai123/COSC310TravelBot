@@ -8,11 +8,16 @@ public final class ResponseMaker {
 
     public ResponseMaker() {
     }
+    
+    public String getTranslate(String sentence) throws Exception{
+    	System.out.println("Allan cool" + sentence);
+    	return Trans.translate(sentence);
+    }
 
     public String getDirections(){
     	
     	place = l.getPlaces(place);
-    	//System.out.println("output of places: "+place);
+    	System.out.println("output of places: "+place);
     	String res = "Here are the directions from Kelowna to your destination:\n";
     	res += l.getDirections(place);
     	

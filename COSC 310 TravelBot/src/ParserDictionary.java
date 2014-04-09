@@ -23,6 +23,7 @@ public class ParserDictionary {
     public static List<String> wiki = Arrays.asList("tell me more information","more info", "tell me more", "about","information","info","wiki");
     public static List<String> Directions = Arrays.asList("how to get","get there","direction to","direct","direction");
     public static List<String> streetView = Arrays.asList("show me", "look like","picture of","image","show");
+    public static List<String> translate = Arrays.asList("translate","other language");
   // Stores the phrase lists as a list of phrases, each phrase being a list of words in the phrase
     private static HashMap<List<String>, List<List<String>>> cachedLists = new HashMap<>();
 
