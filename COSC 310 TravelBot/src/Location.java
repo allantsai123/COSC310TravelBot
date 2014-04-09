@@ -45,7 +45,7 @@ public class Location {
     
     //places API
     public String getPlaces(String keyword) {
-    	System.out.println("This is in the location.java: "+keyword);
+    	//System.out.println("This is in the location.java: "+keyword);
     	  if (!places.containsKey(keyword)) {
               if (!lf.getPlaces(this, keyword))
                   return null;

@@ -15,11 +15,11 @@ public final class ResponseMaker {
 
     public String getDirections(String place){
     	
-    	System.out.println("Output b4: "+place);
+    	//System.out.println("Output b4: "+place);
     	
     	place = l.getPlaces(place);
    	
-    	System.out.println("output of places: "+place);
+    	//System.out.println("output of places: "+place);
 
     	String res = "Here are the directions from Kelowna to your destination:\n";
     	res += l.getDirections(place);
@@ -126,7 +126,7 @@ public final class ResponseMaker {
 
     public String getLocalFood() {
         String response = Responses.getRandomResponse(Responses.searching) + "\n";
-        System.out.println("In responseMake: "+response);
+      //  System.out.println("In responseMake: "+response);
         if (l.getPlaces("food") == null) {
             response += Responses.getRandomResponse(Responses.noRestaurants);
         } else {
